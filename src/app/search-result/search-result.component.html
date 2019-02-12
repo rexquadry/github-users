@@ -1,3 +1,14 @@
-<p>
-  search-result works!
-</p>
+<div class="result-holder">
+  <ul class="search-result">
+    <li *ngFor="let item of result.items">
+      <a routerLink="/user/{{item.login}}">
+        <h3>{{item.login}}</h3>
+        <img src="{{item.avatar_url}}" alt="{{item.login}}" class="avatar">
+      </a>
+      <p>
+        <mat-icon>trending_up</mat-icon>
+        <i>{{item.score}}</i>
+      </p>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,31 @@
+.user-details{
+    width:80vw;margin: 0 auto;display: grid;grid-gap:1em;grid-template-columns: auto 1fr;grid-template-rows: auto;grid-template-areas: "basic community" "repos repos";
+
+    .avatar{border-radius:5%;max-width:300px;}
+    .icon-text{
+        display: flex;flex-direction: row;justify-content: left;align-items: flex-end;
+
+        .mat-icon{margin-right: 1em;}
+    }
+    .basic-info {grid-area: basic;}
+    .community {
+        grid-area: community;
+
+        .user-attrs{
+            display:flex;
+
+            .user-attr{ margin-right:1em;display: flex;flex-direction: row;justify-content: center;align-items: flex-end; }
+        }
+    }
+    .repos {
+        grid-area: repos;display: grid;grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));grid-gap:1em;
+
+        li { border:#999 1px solid;border-radius:1em;padding:1em;
+            .repo-attrs {
+                display: flex;
+
+                .repo-attr { margin-right:1em;display: flex;flex-direction: row;justify-content: center;align-items: flex-end; }
+            }
+        }
+    }
+}

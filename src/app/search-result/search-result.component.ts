@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { UsersService } from "../users.service";
+import { SearchInterface } from "../search-interface";
 
 @Component({
   selector: 'app-search-result',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultComponent implements OnInit {
 
-  constructor() { }
+  result: SearchInterface;
+
+  constructor(private users: UsersService) { }
 
   ngOnInit() {
+    this.users.usersResult.subscribe( res => {
+      console.log('res', res);
+      this.result = res;
+    })
   }
 
 }

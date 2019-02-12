@@ -1,3 +1,52 @@
-<p>
-  user-details works!
-</p>
+<div class="user-details" *ngIf="user">
+  <div class="basic-info">
+    <img src="{{user.avatar_url}}" alt="{{user.login}}" class="avatar">
+    <h3>{{user.name}}</h3>
+    <p>{{user.login}}</p>
+    <p><em>Bio: </em>{{user.bio}}</p>
+  </div>
+  <div class="community">
+    <p class="icon-text"><mat-icon>place</mat-icon> user.location</p>
+    <p class="icon-text"><mat-icon>people</mat-icon> {{user.company}}</p>
+    <p class="icon-text"><mat-icon>cloud</mat-icon> {{user.blog}}</p>
+    <p class="icon-text"><mat-icon>mail</mat-icon> {{user.email}}</p>
+    <div class="user-attrs">
+      <div class="user-attr">
+        <mat-icon>lock_open</mat-icon> {{user.public_repos}}
+      </div>
+      <div class="user-attr">
+        <mat-icon>people</mat-icon> {{user.foloowers}}
+      </div>
+      <div class="user-attr">
+        <mat-icon>people_outline</mat-icon> {{user.following}}
+      </div>
+    </div>
+  </div>
+  <ul class="repos">
+    <li *ngFor="let repo of userRepos">
+      <a href="https://github.com/{{repo.full_name}}">
+        <h4>{{repo.name}}</h4>
+      </a>
+      <p>{{repo.description}}</p>
+      <div class="repo-attrs">
+        <div class="repo-attr" *ngIf="repo.private; else public">
+          <mat-icon>lock</mat-icon>
+        </div>
+        <ng-template #public>
+          <div class="repo-attr">
+            <mat-icon>lock_open</mat-icon>
+          </div>
+        </ng-template>
+        <div class="repo-attr">
+          <mat-icon>star_border</mat-icon> {{repo.stargazers_count}}
+        </div>
+        <div class="repo-attr">
+          <mat-icon>supervisor_account</mat-icon> {{repo.watchers}}
+        </div>
+        <div class="repo-attr">
+          <mat-icon>star_border</mat-icon> {{repo.open_issues}}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

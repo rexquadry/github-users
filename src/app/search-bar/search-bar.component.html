@@ -1,7 +1,4 @@
 
   <mat-form-field class="full-width flex">
-    <input matInput placeholder="Search..." [(ngModel)]="searchTerm" name="searchTerm" type="search" (keyup.enter)="doSearch()">
-    <button mat-fab>
-        <mat-icon aria-label="Example icon-button with a heart icon">search</mat-icon>
-      </button>
+    <input matInput placeholder="Search..." [(ngModel)]="searchTerm" name="searchTerm" type="search" (keyup.enter)="doSearch()" autocomplete="none">
   </mat-form-field>
