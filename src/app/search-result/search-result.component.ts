@@ -16,7 +16,6 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {
     this.users.usersResult.subscribe( res => {
-      console.log('res', res);
       this.result = res;
     })
   }
